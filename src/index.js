@@ -10,6 +10,7 @@ import theme from '@/assets/theme'
 
 import 'normalize.css'
 import '@/assets/css/index.less'
+import 'antd/dist/antd.less'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(

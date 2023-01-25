@@ -58,6 +58,7 @@ export const RightWrapper = styled.div`
           }
         }
       }
+      Q
 
       .top {
         border-bottom: 1px solid #ddd;

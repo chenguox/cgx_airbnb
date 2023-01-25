@@ -8,9 +8,17 @@ module.exports = {
   plugins: [
     {
       // 配置支持less
-      plugin: CracoLessPlugin
-    }
-  ], 
+      plugin: CracoLessPlugin,
+      options: {
+        lessLoaderOptions: {
+          lessOptions: {
+            modifyVars: {},
+            javascriptEnabled: true,
+          },
+        },
+      },
+    },
+  ],
   // webpack
   webpack: {
     alias: {
