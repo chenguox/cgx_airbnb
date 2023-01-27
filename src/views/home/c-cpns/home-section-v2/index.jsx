@@ -8,6 +8,7 @@ import SectionTab from '@/components/section-tab'
 import { SectionV2Wrapper } from './style'
 import { useCallback } from 'react'
 import { useState } from 'react'
+import SectionFooter from '@/components/section-footer'
 
 const HomeSectionV2 = memo((props) => {
   const { infoData = {} } = props
@@ -31,6 +32,7 @@ const HomeSectionV2 = memo((props) => {
         roomList={infoData.dest_list?.[name]}
         itemWidth="33.3333%"
       />
+      <SectionFooter name={name} />
     </SectionV2Wrapper>
   )
 })
