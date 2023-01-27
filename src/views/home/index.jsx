@@ -1,16 +1,18 @@
-import SectionHeader from '@/components/section-header'
-import SectionRooms from '@/components/section-rooms'
 import { fetchHomeDataAction } from '@/store/module/home'
-import React, { memo, useState, useEffect } from 'react'
+import React, { memo, useEffect } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import HomeBanner from './c-cpns/home-banner'
+import HomeSectionV1 from './c-cpns/home-section-v1'
+import HomeSectionV2 from './c-cpns/home-section-v2'
 import { HomeWrapper } from './style'
 
 const Home = memo(() => {
   // 从 redux 中获取数据
-  const { goodPriceInfo } = useSelector(
+  const { goodPriceInfo, highScoreInfo, discountInfo } = useSelector(
     (state) => ({
       goodPriceInfo: state.home.goodPriceInfo,
+      highScoreInfo: state.home.highScoreInfo,
+      discountInfo: state.home.discountInfo,
     }),
     shallowEqual
   )
@@ -25,10 +27,11 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
-        <div className="good-price">
-          <SectionHeader title={goodPriceInfo.title}/>
-          <SectionRooms roomList={goodPriceInfo.list}/>
-        </div>
+        {/* 获取到数据才渲染组件 */}
+        { Object.keys(discountInfo).length && <HomeSectionV2 infoData={discountInfo} />}
+
+        <HomeSectionV1 infoData={goodPriceInfo} />
+        <HomeSectionV1 infoData={highScoreInfo} />
       </div>
     </HomeWrapper>
   )
