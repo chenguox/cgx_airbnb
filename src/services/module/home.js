@@ -20,3 +20,17 @@ export function getHomeDiscountData() {
     url: "/home/discount"
   })
 }
+
+// 探索佛山的精彩之地
+export function getHomeHotRecommendData() {
+  return gxRequest.get({
+    url: "/home/hotrecommenddest"
+  })
+}
+
+// 你可能想去
+export function getHomeLongforData() {
+  return gxRequest.get({
+    url: "/home/longfor"
+  })
+}

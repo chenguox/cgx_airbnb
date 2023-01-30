@@ -6,7 +6,8 @@ const store = configureStore({
   reducer: {
     home: homeReducer,
     entire: entireReducer
-  }
+  },
+  devTools: true
 })
 
 export default store
