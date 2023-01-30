@@ -34,3 +34,10 @@ export function getHomeLongforData() {
     url: "/home/longfor"
   })
 }
+
+// Plus房源
+export function getHomePlusData() {
+  return gxRequest.get({
+    url: "/home/plus"
+  })
+}

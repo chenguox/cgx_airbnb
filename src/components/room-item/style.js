@@ -4,8 +4,10 @@ export const ItemWrapper = styled.div`
   box-sizing: border-box;
   width: ${props => props.itemWidth};
   padding: 8px;
+  flex-shrink: 0;
 
   .inner {
+    width: 100%;
 
     .cover {
       position: relative;
