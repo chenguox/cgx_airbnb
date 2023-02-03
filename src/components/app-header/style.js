@@ -6,7 +6,7 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   padding: 0 24px;
   box-sizing: border-box;
-  border: 1px solid #000;
+  border: 1px solid #EBEBEB;
 
   width: 100%;
   height: 80px;
