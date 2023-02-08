@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const ItemWrapper = styled.div`
   box-sizing: border-box;
-  width: ${props => props.itemWidth};
+  width: ${(props) => props.itemWidth};
   padding: 8px;
   flex-shrink: 0;
 
@@ -23,17 +23,88 @@ export const ItemWrapper = styled.div`
       }
     }
 
+    .slider {
+      position: relative;
+      cursor: pointer;
+
+
+      &:hover {
+        .control {
+          display: flex;
+        }
+      }
+
+      .control {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        display: none;
+        justify-content: space-between;
+        color: #fff;
+
+        /* background-color: pink; */
+
+        .btn {
+          width: 83px;
+          height: 100%;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          background: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
+
+          &.right {
+            background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 100%);
+          }
+        }
+      }
+
+      .indicator {
+        position: absolute;
+        z-index: 9;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        width: 30%;
+        margin: 0 auto;
+
+        .item {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 14.29%; // 显示7个，100/4=14.2857
+
+          .dot {
+            width: 6px;
+            height: 6px;
+            background-color: #fff;
+            border-radius: 50%;
+
+            &.active {
+              width: 8px;
+              height: 8px;
+            }
+          }
+        }
+
+      }
+    }
+
     .desc {
       margin: 10px 0 5px;
       font-size: 12px;
       font-weight: 700px;
-      color: ${props => props.theme.text.primaryColor}
+      color: ${(props) => props.theme.text.primaryColor};
     }
 
     .name {
       font-size: 16px;
       font-weight: 700;
-      
+
       overflow: hidden;
       text-overflow: ellipsis;
 
@@ -51,7 +122,7 @@ export const ItemWrapper = styled.div`
       align-items: center;
       font-size: 12px;
       font-weight: 600;
-      color: ${props => props.theme.text.primaryColor};
+      color: ${(props) => props.theme.text.primaryColor};
 
       .count {
         margin: 0 2px 0 4px;

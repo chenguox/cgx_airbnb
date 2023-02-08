@@ -14,13 +14,17 @@ const EntireRooms = memo((props) => {
   }, shallowEqual)
 
   console.log('roomList:', roomList)
+  // 事件处理
+  const itemClickHandle = (item) => {
+    
+  }
 
   return (
     <RoomsWrapper>
       <h2 className='title'>{totalCount}多处住所</h2>
       <div className='list'>
         {roomList.map((item) => {
-          return <RoomItem itemData={item} key={item._id} itemWidth="20%" />
+          return <RoomItem itemData={item} key={item._id} itemWidth="20%" itemClick={itemClickHandle} />
         })}
       </div>
       { isLoading && <div className='cover'></div>}
