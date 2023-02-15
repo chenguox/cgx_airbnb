@@ -1,9 +1,18 @@
+import PropTypes from 'prop-types'
 import React, { memo } from 'react'
+import DetailInfos from './c-cpns/detail-infos'
+import DetailPicture from './c-cpns/detail-pictures'
+import { DetailWrapper } from './style'
 
-const detail = memo(() => {
+const Detail = memo((props) => {
   return (
-    <div>detail</div>
+    <DetailWrapper>
+      <DetailPicture />
+      <DetailInfos />
+    </DetailWrapper>
   )
 })
 
-export default detail
+Detail.propTypes = {}
+
+export default Detail

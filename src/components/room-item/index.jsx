@@ -10,7 +10,7 @@ import Indicator from '@/base-ui/indicator'
 import classname from 'classname'
 
 const RoomItem = memo((props) => {
-  const { itemData, itemWidth = '25%' } = props
+  const { itemData, itemWidth = '25%', itemClick } = props
   const [selectIndex, setSelectIndex] = useState(0)
   const sliderRef = useRef()
 
@@ -25,6 +25,10 @@ const RoomItem = memo((props) => {
     if (newIndex > length - 1) newIndex = 0
     if (newIndex < 0) newIndex = length - 1
     setSelectIndex(newIndex)
+  }
+
+  function itemClickHandle() {
+    if (itemClick) itemClick(itemData)
   }
 
   // 子元素的赋值
@@ -75,7 +79,11 @@ const RoomItem = memo((props) => {
   )
 
   return (
-    <ItemWrapper itemWidth={itemWidth}>
+    <ItemWrapper
+      itemWidth={itemWidth}
+      verifyColor={itemData?.verify_info?.text_color || '#39576a'}
+      onClick={itemClickHandle}
+    >
       <div className="inner">
         {/* 根据要求显示图片还是轮播图 */}
         {!itemData.picture_urls ? pictureElement : sliderElement}

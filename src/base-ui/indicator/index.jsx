@@ -9,7 +9,6 @@ const Indicator = memo((props) => {
   useEffect(() => {
     // 1. 获取当前选中的元素
     const selectItemEl = contentRef.current.children[selectIndex]
-    console.log(selectItemEl, 'selectItemEl')
     const itemLeft = selectItemEl.offsetLeft
     const itemWidth = selectItemEl.clientWidth
 
