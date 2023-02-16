@@ -1,14 +1,49 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HeaderWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 24px;
-  box-sizing: border-box;
-  border: 1px solid #EBEBEB;
+  // 如果有 fixed 类则固定定位
+  &.fixed {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
 
-  width: 100%;
-  height: 80px;
-`;
+  .content {
+    position: relative;
+    z-index: 19;
+    /* background-color: #fff; */
+    background-color: ${props => props.theme.isAlpha ? "rgba(255, 255, 255, 0)" : "rgba(255, 255, 255, 1)"};
+    border-bottom: 1px solid #eee;
+    border-bottom-color: ${props => props.theme.isAlpha ? "rgba(233, 233, 233, 0)" : "rgba(233, 233, 233, 1)"};
 
+    .top {
+      display: flex;
+      /* justify-content: space-between; */
+      align-items: center;
+      height: 80px;
+
+      /* width: 100%; */
+    }
+
+    /* .search-area {
+      height: 100px;
+    } */
+  }
+
+  .cover {
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .3);
+  }
+`
+
+export const SearchAreaWrapper = styled.div`
+  transition: height 250ms ease;
+  height: ${props => props.isSearch ? "100px" : "0"};
+`

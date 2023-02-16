@@ -9,7 +9,6 @@ import { SectionV3Wrapper } from './style'
 
 const HomeSectionV3 = memo((props) => {
   const { infoData } = props
-  console.log(infoData)
 
   return (
     <SectionV3Wrapper>

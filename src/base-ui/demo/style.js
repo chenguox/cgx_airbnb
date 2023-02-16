@@ -73,6 +73,9 @@ export const BrowserWrapper = styled.div`
         margin: 0 auto; // 居中
         user-select: none;
       }
+
+      
+
     }
   }
 

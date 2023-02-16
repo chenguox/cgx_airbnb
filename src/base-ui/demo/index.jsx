@@ -26,7 +26,6 @@ const PictureBrowser = memo((props) => {
     const len = pictureUrls.length
     if (newIndex < 0) newIndex = len - 1
     if (newIndex > len - 1) newIndex = 0
-    console.log(currentIndex)
     setCurrentIndex(newIndex)
   }
 

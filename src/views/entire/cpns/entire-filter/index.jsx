@@ -13,7 +13,6 @@ const EntireFilter = memo((props) => {
     const newItems = [...selectItems]
     if(newItems.includes(item)) {
       const itemIndex = newItems.findIndex(filterItem => filterItem === item)
-      console.log(itemIndex)
       newItems.splice(itemIndex, 1)
     } else {
       newItems.push(item)

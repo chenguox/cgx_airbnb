@@ -10,9 +10,8 @@ const DetailPicture = memo((props) => {
 
   /** 从 redux 中获取数据 */
   const { detailInfo } = useSelector((state) => ({
-    detailInfo: state.detail.detailInfo
+    detailInfo: state.detail.detailInfo,
   }))
-  console.log(detailInfo)
 
   return (
     <PicturesWrapper>
@@ -35,14 +34,16 @@ const DetailPicture = memo((props) => {
         </div>
       </div>
       {/* 按钮 */}
-      <div className="show-btn" onClick={e => setShowBrowser(true)}>
+      <div className="show-btn" onClick={(e) => setShowBrowser(true)}>
         显示照片
       </div>
       {/* 图片浏览器 */}
-      <PictureBrowser 
-        pictureUrls={detailInfo.picture_urls}
-        closeClick={e => setShowBrowser(false)}
-      />
+      {showBrowser && (
+        <PictureBrowser
+          pictureUrls={detailInfo.picture_urls}
+          closeClick={(e) => setShowBrowser(false)}
+        />
+      )}
     </PicturesWrapper>
   )
 })

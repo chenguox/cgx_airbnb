@@ -12,18 +12,17 @@ import 'antd/dist/antd.less'
 import 'normalize.css'
 import '@/assets/css/index.less'
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   // <React.StrictMode>
+  <Provider store={store}>
     <Suspense fallback="loading">
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <HashRouter>
-            <App />
-          </HashRouter>
-        </ThemeProvider>
-      </Provider>
+      <ThemeProvider theme={theme}>
+        <HashRouter>
+          <App />
+        </HashRouter>
+      </ThemeProvider>
     </Suspense>
+  </Provider>
   // </React.StrictMode>
 )

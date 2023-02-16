@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const BrowserWrapper = styled.div`
   position: fixed;
@@ -17,7 +17,7 @@ export const BrowserWrapper = styled.div`
   .top {
     position: relative;
     height: 86px;
-    
+
     .close-btn {
       position: absolute;
       top: 15px;
@@ -29,7 +29,7 @@ export const BrowserWrapper = styled.div`
   .slider {
     flex: 1;
     position: relative;
-    
+
     display: flex;
     justify-content: center;
 
@@ -63,8 +63,6 @@ export const BrowserWrapper = styled.div`
       max-width: 105vh;
       overflow: hidden;
 
-      background-color: pink;
-
       img {
         position: absolute;
         top: 0;
@@ -75,6 +73,27 @@ export const BrowserWrapper = styled.div`
         height: 100%;
         margin: 0 auto; // 居中
         user-select: none;
+      }
+
+      /* 动画的样式 */
+      .pic-enter {
+        transform: translateX(${(props) => (props.isNext ? '100%' : '-100%')});
+        opacity: 0;
+      }
+
+      .pic-enter-active {
+        transform: translate(0);
+        opacity: 1;
+        transition: all 200ms ease;
+      }
+
+      .pic-exit {
+        opacity: 1;
+      }
+
+      .pic-exit-active {
+        opacity: 0;
+        transition: all 200ms ease;
       }
     }
   }
@@ -105,7 +124,7 @@ export const BrowserWrapper = styled.div`
         margin-top: 3px;
         overflow: hidden;
         transition: height 300ms ease;
-        height: ${props => props.showList ? "67px" : "0"};
+        height: ${(props) => (props.showList ? '67px' : '0')};
 
         .item {
           margin-right: 15px;
@@ -113,7 +132,7 @@ export const BrowserWrapper = styled.div`
 
           img {
             height: 67px;
-            opacity:  0.5;
+            opacity: 0.5;
           }
 
           &.active {

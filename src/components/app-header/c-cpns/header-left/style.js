@@ -6,6 +6,12 @@ export const LeftWrapper = styled.div`
   display: flex;
   align-items: center;
 
-  /* background-color: cyan; */
-  color: ${(props) => props.theme.color.primaryColor};
+  /* color: ${(props) => props.theme.color.primaryColor}; */
+  /* 改为 */
+  color: ${props => props.theme.isAlpha ? "#fff" : props.theme.color.primaryColor};
+
+  .logo {
+    margin-left: 24px;
+    cursor: pointer;
+  }
 `

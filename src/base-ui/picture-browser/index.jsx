@@ -15,22 +15,28 @@ const PictureBrowser = memo((props) => {
   const { pictureUrls, closeClick } = props
   const [currentIndex, setCurrentIndex] = useState(0)
   const [showList, setShowList] = useState(true)
+  const [isNext, setIsNext] = useState(true)
 
   /** 事件监听的逻辑 */
   function closeBtnClickHandle() {
     if (closeClick) closeClick()
   }
 
-  function controlClickHandle(isRight) {
-    let newIndex = isRight ? currentIndex + 1 : currentIndex - 1
+  function controlClickHandle(isNext) {
+    let newIndex = isNext ? currentIndex + 1 : currentIndex - 1
     const len = pictureUrls.length
     if (newIndex < 0) newIndex = len - 1
-    if (newIndex > len - 1) newIndex = 0
     setCurrentIndex(newIndex)
+    setIsNext(isNext)
+  }
+
+  function bottomItemClickHandle(index) {
+    setIsNext(index > currentIndex)
+    setCurrentIndex(index)
   }
 
   return (
-    <BrowserWrapper showList={showList}>
+    <BrowserWrapper showList={showList} isNext={isNext}>
       <div className="top">
         <div className="close-btn" onClick={(e) => closeBtnClickHandle()}>
           <IconClose />
@@ -46,8 +52,12 @@ const PictureBrowser = memo((props) => {
           </div>
         </div>
         <div className="picture">
-          <SwitchTransition>
-            <CSSTransition>
+          <SwitchTransition mode="in-out">
+            <CSSTransition 
+              key={pictureUrls[currentIndex]}
+              classNames="pic"
+              timeout={2000}
+            >
               <img src={pictureUrls[currentIndex]} alt="" />
             </CSSTransition>
           </SwitchTransition>
@@ -80,7 +90,7 @@ const PictureBrowser = memo((props) => {
                       active: currentIndex === index,
                     })}
                     key={item}
-                    onClick={(e) => setCurrentIndex(index)}
+                    onClick={(e) => bottomItemClickHandle(index)}
                   >
                     <img src={item} alt="" />
                   </div>

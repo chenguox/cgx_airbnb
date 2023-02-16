@@ -1,4 +1,5 @@
 import { fetchRoomListAction } from '@/store/module/entire/actionCreaters'
+import { changeHeaderConfigAction } from '@/store/module/main'
 import React, { memo } from 'react'
 import { useEffect } from 'react'
 import { useDispatch,  } from 'react-redux'
@@ -8,10 +9,10 @@ import EntireRooms from './cpns/entire-rooms'
 import { EntireWrapper } from './style'
 
 const entire = memo(() => {
-
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchRoomListAction())
+    dispatch(changeHeaderConfigAction({ isFixed: true, topAlpha: false }))
   },[dispatch])
 
   return (
